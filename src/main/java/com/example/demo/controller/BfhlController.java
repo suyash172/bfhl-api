@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 
-@GetMapping("/health")
-public ResponseEntity<Map<String, String>> health() {
-    return ResponseEntity.ok(Map.of("status", "UP"));
-}
+
 
 @RestController
 @RequestMapping("/bfhl")
@@ -25,6 +22,11 @@ public class BfhlController {
 
     public BfhlController(BfhlService bfhlService) {
         this.bfhlService = bfhlService;
+    }
+
+    @GetMapping("/health")
+    public ResponseEntity<Map<String, String>> health() {
+        return ResponseEntity.ok(Map.of("status", "UP"));
     }
 
     @PostMapping
