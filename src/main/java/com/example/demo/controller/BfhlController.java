@@ -8,6 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
+
+@GetMapping("/health")
+public ResponseEntity<Map<String, String>> health() {
+    return ResponseEntity.ok(Map.of("status", "UP"));
+}
+
 @RestController
 @RequestMapping("/bfhl")
 public class BfhlController {
